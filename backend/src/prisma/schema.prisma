@@ -1,0 +1,38 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Deck {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  title String
+  created_at DateTime? @default(now())
+  updated_at DateTime? @default(now())
+  cardStatus Int[] @default([0,0,0])
+
+  @@map("deck")
+}
+
+model Card {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  deck_id String
+  word String
+  translate String
+  example String
+  definition String
+  status String @default("New")
+  created_at DateTime? @default(now())
+  updated_at DateTime? @default(now())
+
+  @@map("card")
+}
