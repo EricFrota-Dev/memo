@@ -74,7 +74,7 @@ const DeckContent: React.FC<DeckContentProps> = ({ id, title, cardStatus }) => {
           <FaTrash />
         </IconButton>
       </div>
-      <div className="font-bold w-full border-b border-zinc-500 h-8 flex items-center">
+      <div className="font-bold w-full border-b border-zinc-500 h-8 flex items-center capitalize">
         {title}
       </div>
       <div className="child:flex child:justify-between child:text-sm child:mb-1">

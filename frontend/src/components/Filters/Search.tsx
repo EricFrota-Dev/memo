@@ -6,7 +6,7 @@ function Search() {
   const inputRef = useRef<HTMLInputElement>(null);
   const { setSearch, revalidate } = useDeckContext();
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    setSearch(inputRef.current!.value);
+    setSearch(inputRef.current!.value.toLocaleLowerCase());
     e.preventDefault();
     revalidate();
   };

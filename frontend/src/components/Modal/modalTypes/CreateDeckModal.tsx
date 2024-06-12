@@ -28,7 +28,7 @@ const CreateDeckModal = () => {
             <Button
               type="default"
               text="Adicionar"
-              onClick={() => handleClick(title)}
+              onClick={() => handleClick(title.toLocaleLowerCase())}
             />
             <Button
               type="cancel"
